@@ -3,7 +3,7 @@ CREATE OR REPLACE FUNCTION get_default_owner() RETURNS "user" AS $$
   DECLARE 
 
     defaultOwner "user"%rowtype;
-    defaultOwnerUsername varchar(500) := "Default Owner";
+    defaultOwnerUsername varchar(500) := 'Default Owner';
 
   BEGIN
         
@@ -25,7 +25,7 @@ CREATE OR REPLACE FUNCTION get_default_owner() RETURNS "user" AS $$
 
       RETURN defaultOwner ;
 
-  END
+  END;
 
 $$ language plpgsql;
 
@@ -46,7 +46,7 @@ CREATE OR REPLACE FUNCTION fix_activities_without_owner() RETURNS SETOF activity
 	    where owner_id is null
 	    returning *;
 	    
-  END
+  END;
  $$ language plpgsql;
 
 	
