@@ -5,7 +5,7 @@ CREATE OR REPLACE FUNCTION log_delete_activity()
     RETURNS TRIGGER AS $$
 BEGIN
      INSERT INTO action_log (id, action_name, entity_name, entity_id, author, action_date)
-        values  (nextval('id_generator'),'delete', 'activity', OLD.id, user, now());
+        values  (nextval('id_generator'),'delete', 'activity', OLD.id , user, now());
      RETURN NULL; -- le résultat est ignoré car il s'agit d'un trigger AFTER
 END;
 $$ language plpgsql;
